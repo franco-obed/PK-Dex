@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar,
   NavbarBrand,
@@ -10,7 +11,8 @@ import {
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import { Image } from "@heroui/image";
-// import PokemonIcon from "./pokemon-icon.svg";
+import { Spacer } from "@heroui/spacer";
+import { useDisclosure } from "@heroui/modal";
 
 export const AcmeLogo = () => {
   return (
@@ -18,7 +20,7 @@ export const AcmeLogo = () => {
       <Image
         isZoomed
         src={"/pokemon-icon.png"}
-        alt={"Pokeballs Icons"}
+        alt={"Pokeball-Icon"}
         width={24}
         height={24}
       />
@@ -26,18 +28,20 @@ export const AcmeLogo = () => {
   );
 };
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <Navbar isBordered>
-      <AcmeLogo />
-
-      <NavbarBrand>
-        <p className="font-bold text-inherit">PK Dex</p>
-      </NavbarBrand>
+      <Link href={"/"} color={"foreground"}>
+        <NavbarBrand>
+          <AcmeLogo />
+          <Spacer x={2} />
+          <p className="font-bold text-inherit">PK Dex</p>
+        </NavbarBrand>
+      </Link>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
+          <Link color="foreground" href="/type-calculator">
+            Type Calculator
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
@@ -53,7 +57,9 @@ export default function NavBar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Button color={"default"} onPress={props.onPress}>
+            Login
+          </Button>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
