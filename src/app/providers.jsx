@@ -3,18 +3,21 @@
 
 import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import StoreProvider from "@/app/StoreProvider";
 
 export function Providers({ children }) {
   return (
-    <HeroUIProvider>
-      <NextThemesProvider
-        attribute={"class"}
-        defaultTheme={"dark"}
-        disableTransitionOnChange
-        enableSystem={false}
-      >
-        {children}
-      </NextThemesProvider>
-    </HeroUIProvider>
+    <StoreProvider>
+      <HeroUIProvider>
+        <NextThemesProvider
+          attribute={"class"}
+          defaultTheme={"dark"}
+          disableTransitionOnChange
+          enableSystem={false}
+        >
+          {children}
+        </NextThemesProvider>
+      </HeroUIProvider>
+    </StoreProvider>
   );
 }
