@@ -7,9 +7,7 @@ import {
   ModalFooter,
 } from "@heroui/modal";
 import { Button } from "@heroui/button";
-import { Checkbox } from "@heroui/checkbox";
 import { Input } from "@heroui/input";
-import { Link } from "@heroui/link";
 
 export const MailIcon = (props) => {
   return (
@@ -55,7 +53,7 @@ export const LockIcon = ({ ...props }) => {
   );
 };
 
-export default function LoginModal(props) {
+export default function SignUpModal(props) {
   return (
     <>
       <Modal
@@ -66,8 +64,13 @@ export default function LoginModal(props) {
       >
         <ModalContent>
           <>
-            <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">Sign Up</ModalHeader>
             <ModalBody>
+              <Input
+                label="User Name"
+                placeholder="Enter your username"
+                variant="bordered"
+              />
               <Input
                 endContent={
                   <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -85,25 +88,13 @@ export default function LoginModal(props) {
                 type="password"
                 variant="bordered"
               />
-              <div className="flex py-2 px-1 justify-between">
-                <Checkbox
-                  classNames={{
-                    label: "text-small",
-                  }}
-                >
-                  Remember me
-                </Checkbox>
-                <Link color="primary" href="#" size="sm">
-                  Forgot password?
-                </Link>
-              </div>
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="flat" onPress={props.onClose}>
                 Close
               </Button>
               <Button color="primary" onPress={props.onClose}>
-                Sign in
+                Create Account
               </Button>
             </ModalFooter>
           </>

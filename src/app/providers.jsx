@@ -7,7 +7,12 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 export function Providers({ children }) {
   return (
     <HeroUIProvider>
-      <NextThemesProvider attribute={"class"} defaultTheme={"dark"}>
+      <NextThemesProvider
+        attribute={"class"}
+        defaultTheme={"dark"}
+        disableTransitionOnChange
+        enableSystem={false}
+      >
         {children}
       </NextThemesProvider>
     </HeroUIProvider>
