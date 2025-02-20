@@ -49,7 +49,7 @@ export default function NavBar() {
         </Link>
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem>
-            <Link color="foreground" href="/type-calculator">
+            <Link color="foreground" href="/pokemon">
               Pokemon
             </Link>
           </NavbarItem>

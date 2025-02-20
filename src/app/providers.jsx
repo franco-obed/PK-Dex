@@ -3,7 +3,7 @@
 
 import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import StoreProvider from "@/app/StoreProvider";
+import StoreProvider from "./StoreProvider";
 
 export function Providers({ children }) {
   return (
