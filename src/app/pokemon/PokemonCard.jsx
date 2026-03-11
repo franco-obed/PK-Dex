@@ -17,13 +17,13 @@ export default function PokemonCard() {
       <CardHeader className="flex gap-3">
         <Image
           alt="heroui logo"
-          height={40}
+          height={100}
           radius="sm"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width={40}
+          src={data?.sprites.front_default}
+          width={100}
         />
         <div className="flex flex-col">
-          <p className="text-md">data</p>
+          <p className="text-md text-transform: capitalize">{data?.name}</p>
           <p className="text-small text-default-500">heroui.com</p>
         </div>
       </CardHeader>
