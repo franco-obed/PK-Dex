@@ -24,7 +24,7 @@ export default [
     },
     settings: {
       react: {
-        version: "18.0", // <--- FUERZA LA VERSIÓN AQUÍ para evitar el error detectReactVersion
+        version: "19",
       },
     },
     rules: {

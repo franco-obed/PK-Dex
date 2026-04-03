@@ -14,14 +14,15 @@ import { useGetPokemonByIdQuery } from "@/lib/features/pokemon/pokemonApi";
 export default function PokemonCard() {
   const { data } = useGetPokemonByIdQuery("900");
   return (
-    <Card className="max-w-[400px]">
-      <CardHeader className="flex gap-3">
+    <Card className="max-w-[400px] border-1 border-gray-900">
+      <CardHeader className="flex gap-3 bg-red-800">
         <Image
           alt="heroui logo"
           height={100}
           radius="lg"
           src={data?.sprites.front_default}
           width={100}
+          isBlurred
         />
         <div className="flex flex-col">
           <div className="flex flex-row gap-2">
@@ -29,7 +30,7 @@ export default function PokemonCard() {
             <p className="text-md text-transform: capitalize">{data?.name}</p>
           </div>
           <div className="flex flex-row gap-2">
-            {data.types.map((ele) => (
+            {data?.types.map((ele) => (
               <Chip color="default" key={ele.slot}>
                 <p className="text-transform: capitalize"> {ele.type.name} </p>
               </Chip>
@@ -38,12 +39,19 @@ export default function PokemonCard() {
         </div>
       </CardHeader>
       <Divider />
-      <CardBody>
-        {data?.abilities.length > 1 ? <p>Abilities:</p> : <p>Ability:</p>}
+      <CardBody className="bg-white">
+        {data?.abilities.length > 1 ? (
+          <p className="text-black">Abilities:</p>
+        ) : (
+          <p className="text-black">Ability:</p>
+        )}
 
         <div className="flex flex-row gap-2 ">
           {data?.abilities.map((ele) => (
-            <p key={ele.slot} className="text-md text-transform: capitalize">
+            <p
+              key={ele.slot}
+              className="text-md text-transform: capitalize text-black"
+            >
               {ele.ability.name}
             </p>
           ))}
